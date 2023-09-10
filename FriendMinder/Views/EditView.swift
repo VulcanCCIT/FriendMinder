@@ -18,6 +18,8 @@ struct EditView: View {
     NavigationView {
       VStack {
         TextField("Edit Pic Name", text: $viewModel.friends.name)
+          .overlay(RoundedRectangle(cornerRadius: 14)
+            .stroke(Color.blue, lineWidth: 2))
           .onAppear {
             UITextField.appearance().clearButtonMode = .whileEditing
           }
@@ -26,7 +28,7 @@ struct EditView: View {
           .frame(height: 30)
           .foregroundColor(.blue)
           .fontWeight(.bold)
-          .textFieldStyle(.roundedBorder)
+          .padding()
         if let image = viewModel.friends.image {
           Image(uiImage: image)
             .resizable()

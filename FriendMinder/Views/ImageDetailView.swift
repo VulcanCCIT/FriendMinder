@@ -7,26 +7,44 @@
 //  His github code is at https://github.com/Fly0strich/SwiftUI_Challenges
 //
 
+import MapKit
 import SwiftUI
-
 
 struct ImageDetailView: View {
   
-  @State var friends: Friend
+  //@State var friends: Friend
+  @StateObject private var viewModel: ViewModel
   
   var body: some View {
     VStack {
-      Text(friends.name)
+      Text(viewModel.friends.name)
         .font(.title)
         .foregroundColor(.blue)
-      Image(uiImage: friends.image ?? UIImage(systemName: "person")!)
+      Image(uiImage: viewModel.friends.image ?? UIImage(systemName: "person")!)
         .resizable()
         .scaledToFit()
         .padding()
     }
     
-    Spacer()
+    Toggle("Show friend location", isOn: $viewModel.showFriendLocation)
     
+    if viewModel.showFriendLocation {
+      Map(coordinateRegion: $viewModel.mapRegion, annotationItems: viewModel.annotations) { annotation in
+        MapAnnotation(coordinate: annotation.coordinate) {
+          Image(systemName: "mappin.and.ellipse")
+            .resizable()
+            .foregroundColor(.red)
+            .frame(width: 35, height: 25)
+        }
+      }
+      .transition(.asymmetric(insertion: .push(from: .bottom), removal: .push(from: .top)))
+    } else {
+      Spacer()
+    }
+  }
+  
+  init(friends: Friend) {
+    _viewModel = StateObject(wrappedValue: ViewModel(friends: friends))
   }
 }
 

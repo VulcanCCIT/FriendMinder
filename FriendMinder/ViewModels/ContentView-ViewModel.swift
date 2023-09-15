@@ -18,6 +18,7 @@ extension ContentView {
       friends.sorted()
     }
     
+    let locationFetcher = LocationFetcher()
     let savePath = FileManager.documentsDirectory.appendingPathComponent("Friends")
     
     init() {
@@ -28,8 +29,6 @@ extension ContentView {
         friends = []
       }
     }
-    
-    
     
     func addFriend(newFriend: Friend) {
       friends.append(newFriend)
@@ -43,6 +42,5 @@ extension ContentView {
         print("Unable to save data.")
       }
     }
-    
   }
 }

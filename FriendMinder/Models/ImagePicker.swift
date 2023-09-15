@@ -32,8 +32,8 @@ struct ImagePicker: UIViewControllerRepresentable {
         }
       }
     }
-    
   }
+  
   func makeUIViewController(context: Context) -> PHPickerViewController {
     var config = PHPickerConfiguration()
     config.filter = .images
@@ -50,5 +50,4 @@ struct ImagePicker: UIViewControllerRepresentable {
   func makeCoordinator() -> Coordinator {
     Coordinator(self)
   }
-  
 }

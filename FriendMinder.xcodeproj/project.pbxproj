@@ -14,6 +14,8 @@
 		630423F32AAA6177008C87C1 /* ContentView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630423F22AAA6177008C87C1 /* ContentView-ViewModel.swift */; };
 		630423F72AAAA704008C87C1 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630423F62AAAA704008C87C1 /* EditView.swift */; };
 		630423F92AAAA71D008C87C1 /* EditView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630423F82AAAA71D008C87C1 /* EditView-ViewModel.swift */; };
+		6318801D2AB22677008AD116 /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6318801C2AB22677008AD116 /* LocationFetcher.swift */; };
+		6318801F2AB22AAE008AD116 /* ImageDetailView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6318801E2AB22AAE008AD116 /* ImageDetailView-ViewModel.swift */; };
 		63B8A78E2AA7F699008C3054 /* FriendMinderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B8A78D2AA7F699008C3054 /* FriendMinderApp.swift */; };
 		63B8A7902AA7F699008C3054 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B8A78F2AA7F699008C3054 /* ContentView.swift */; };
 		63B8A7922AA7F69A008C3054 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63B8A7912AA7F69A008C3054 /* Assets.xcassets */; };
@@ -28,6 +30,9 @@
 		630423F22AAA6177008C87C1 /* ContentView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-ViewModel.swift"; sourceTree = "<group>"; };
 		630423F62AAAA704008C87C1 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		630423F82AAAA71D008C87C1 /* EditView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditView-ViewModel.swift"; sourceTree = "<group>"; };
+		6318801C2AB22677008AD116 /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationFetcher.swift; path = FriendMinder/Models/LocationFetcher.swift; sourceTree = SOURCE_ROOT; };
+		6318801E2AB22AAE008AD116 /* ImageDetailView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ImageDetailView-ViewModel.swift"; path = "FriendMinder/ViewModels/ImageDetailView-ViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		631880202AB28B3A008AD116 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		63B8A78A2AA7F699008C3054 /* FriendMinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FriendMinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63B8A78D2AA7F699008C3054 /* FriendMinderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendMinderApp.swift; sourceTree = "<group>"; };
 		63B8A78F2AA7F699008C3054 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,6 +64,7 @@
 		6318586C2AAD1EEF00C87EAA /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				6318801E2AB22AAE008AD116 /* ImageDetailView-ViewModel.swift */,
 				630423F22AAA6177008C87C1 /* ContentView-ViewModel.swift */,
 				630423F82AAAA71D008C87C1 /* EditView-ViewModel.swift */,
 			);
@@ -68,6 +74,7 @@
 		6318586D2AAD1F0F00C87EAA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				6318801C2AB22677008AD116 /* LocationFetcher.swift */,
 				630423F02AAA588C008C87C1 /* FileManager-DocumentsDirectory.swift */,
 				630423EE2AAA49DD008C87C1 /* Friend.swift */,
 				630423EA2AAA3487008C87C1 /* ImagePicker.swift */,
@@ -94,6 +101,7 @@
 		63B8A78C2AA7F699008C3054 /* FriendMinder */ = {
 			isa = PBXGroup;
 			children = (
+				631880202AB28B3A008AD116 /* Info.plist */,
 				63B8A78D2AA7F699008C3054 /* FriendMinderApp.swift */,
 				6318586B2AAD1EB800C87EAA /* Views */,
 				6318586C2AAD1EEF00C87EAA /* ViewModels */,
@@ -184,9 +192,11 @@
 			files = (
 				630423F12AAA588C008C87C1 /* FileManager-DocumentsDirectory.swift in Sources */,
 				630423EB2AAA3487008C87C1 /* ImagePicker.swift in Sources */,
+				6318801D2AB22677008AD116 /* LocationFetcher.swift in Sources */,
 				630423F72AAAA704008C87C1 /* EditView.swift in Sources */,
 				630423ED2AAA3719008C87C1 /* ImageDetailView.swift in Sources */,
 				630423EF2AAA49DD008C87C1 /* Friend.swift in Sources */,
+				6318801F2AB22AAE008AD116 /* ImageDetailView-ViewModel.swift in Sources */,
 				630423F92AAAA71D008C87C1 /* EditView-ViewModel.swift in Sources */,
 				63B8A7902AA7F699008C3054 /* ContentView.swift in Sources */,
 				630423F32AAA6177008C87C1 /* ContentView-ViewModel.swift in Sources */,
@@ -322,6 +332,8 @@
 				DEVELOPMENT_TEAM = MY2YQ76MW5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FriendMinder/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need to show where this pic was taken";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -351,6 +363,8 @@
 				DEVELOPMENT_TEAM = MY2YQ76MW5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FriendMinder/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need to show where this pic was taken";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

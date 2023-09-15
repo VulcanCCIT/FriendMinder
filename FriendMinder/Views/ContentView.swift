@@ -32,8 +32,6 @@ struct ContentView: View {
                   .overlay(Circle().stroke(Color.white, lineWidth: 4))
                 
                   .shadow(color:.blue, radius: 10)
-                //.background(.blue)
-                //.clipShape(Circle())
               } else {
                 Image(systemName: "figure.wave.circle")
                   .resizable()
@@ -42,7 +40,6 @@ struct ContentView: View {
               
               Text(friend.name)
                 .foregroundColor(.blue)
-              
             }
           }
         }
@@ -60,10 +57,11 @@ struct ContentView: View {
         }
       }
       .onChange(of: viewModel.selectedImage) { _ in
+        viewModel.locationFetcher.start()
         viewModel.showingEditView = true
       }
       .sheet(isPresented: $viewModel.showingEditView) {
-        EditView(friends: Friend(id: UUID(), name: "", image: viewModel.selectedImage)) { newNamedFace in
+        EditView(friends: Friend(id: UUID(), name: "", image: viewModel.selectedImage, friendLocation: viewModel.locationFetcher.lastKnownLocation)) { newNamedFace in
           viewModel.addFriend(newFriend: newNamedFace)
         }
       }

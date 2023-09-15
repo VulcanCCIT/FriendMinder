@@ -10,22 +10,24 @@ import PhotosUI
 
 struct Friend: Codable, Comparable, Identifiable {
   enum CodingKeys: CodingKey {
-    case id, name, image
+    case id, name, image, friendLatitude, friendLongitude
   }
   
   let savePath = FileManager.documentsDirectory.appendingPathComponent("Friends")
   
-  static let example = Friend(id: UUID(), name: "Spock", image: UIImage(systemName: "figure.wave.circle"))
+  static let example = Friend(id: UUID(), name: "Spock", image: UIImage(systemName: "figure.wave.circle"), friendLocation: CLLocationCoordinate2D(latitude: 37, longitude: -95))
   
   let id: UUID
   var name: String
   var image: UIImage?
+  var friendLocation: CLLocationCoordinate2D?
   
   // Initializer for creating a UserImage instance elsewhere in the app
-  init(id: UUID, name: String, image: UIImage?) {
+  init(id: UUID, name: String, image: UIImage?, friendLocation: CLLocationCoordinate2D?) {
     self.id = id
     self.name = name
     self.image = image
+    self.friendLocation = friendLocation
   }
   
   // Initializer for decoding the encoded data
@@ -38,6 +40,10 @@ struct Friend: Codable, Comparable, Identifiable {
     let imageData = try container.decode(Data.self, forKey: .image)
     let decodedImage = UIImage(data: imageData) ?? UIImage()
     self.image = decodedImage
+    let friendLatitude = try container.decode(Double.self, forKey: .friendLatitude)
+    let friendLongitude = try container.decode(Double.self, forKey: .friendLongitude)
+    self.friendLocation = CLLocationCoordinate2D(latitude: friendLatitude, longitude: friendLongitude)
+    
   }
   
   //encode the data
@@ -47,6 +53,8 @@ struct Friend: Codable, Comparable, Identifiable {
     try container.encode(name, forKey: .name)
     let imageData = image?.jpegData(compressionQuality: 0.8)
     try container.encode(imageData, forKey: .image)
+    try container.encode(friendLocation?.latitude ?? 0, forKey: .friendLatitude)
+    try container.encode(friendLocation?.longitude ?? 0, forKey: .friendLongitude)
   }
   
   static func ==(lhs: Self, rhs: Self) -> Bool {

@@ -16,5 +16,4 @@ import Foundation
     self.friends = friends
     self.showingImagePicker = false
   }
-  
 }
